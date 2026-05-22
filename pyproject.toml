@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "homo-mempalace"
+version = "1.0.0"
+description = "🧠 DeepSeek版本地优先AI记忆系统 · Wing-Room-Drawer · 零API召回96.6%"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "HOMO AI", email = "homo-ai@outlook.com"},
+]
+keywords = ["memory", "ai", "deepseek", "mempalace", "rag", "chinese"]
+
+dependencies = [
+    "mempalace>=3.3.5",
+]
+
+[project.scripts]
+homo-mempalace = "homo.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/sevenliuhu/homo-mempalace"
+Source = "https://github.com/sevenliuhu/homo-mempalace"
+Issues = "https://github.com/sevenliuhu/homo-mempalace/issues"
+
+[tool.setuptools.packages.find]
+include = ["homo*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+ignore = ["E501"]

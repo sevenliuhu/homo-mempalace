@@ -1,0 +1,58 @@
+# HOMO-MemPalace 配置示例
+# 将此文件放入项目根目录，mempalace mine 时自动识别
+#
+# DeepSeek 版记忆系统配置
+
+# 记忆宫殿配置
+palace:
+  path: "~/.homo-mempalace/palace"
+  backend: chromadb
+  embedding_model: all-MiniLM-L6-v2
+
+# DeepSeek LLM 配置
+llm:
+  provider: deepseek  # deepseek | ollama
+  deepseek:
+    model: deepseek-chat
+    api_base: https://api.deepseek.com
+  ollama:
+    model: deepseek-r1:7b
+    base_url: http://localhost:11434
+
+# 中文特定配置
+chinese:
+  enable_entity_detection: true
+  spellcheck: true
+  date_format: YYYY-MM-DD
+
+# 翼和房间的默认映射（可选）
+topics_by_wing:
+  用户:
+    - 个人信息
+    - 家人
+    - 工作
+  项目:
+    - 后端
+    - 前端
+    - 决策
+    - 日常
+  代理人:
+    - diary
+    - 知识
+
+# 跳过目录（矿业时忽略）
+skip_dirs:
+  - .git
+  - node_modules
+  - __pycache__
+  - .venv
+  - venv
+  - dist
+  - build
+  - .next
+
+# 钩子设置
+hooks:
+  auto_save: true
+  auto_save_interval_min: 5
+  silent_save: true
